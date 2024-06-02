@@ -1,0 +1,21 @@
+.custom-themes {
+    @apply text-stone-900;
+    word-wrap: break-word;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    line-height: 1.65rem;
+    text-align: left;
+    @apply my-8     
+}
+
+.custom-themes blockquote,
+.custom-themes details,
+.custom-themes dl,
+.custom-themes ol,
+.custom-themes p,
+.custom-themes pre,
+.custom-themes table,
+.custom-themes ul {
+  margin-top: 0;
+  margin-bottom: 1.2em;
+}

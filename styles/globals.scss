@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~highlight.js/styles/github.css";
+
+:root {
+  --font-h1: "Pacifico", cursive;
+  --font-main: "Mono", monospace;
+  --punctuation-color: rgb(120 113 108);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: 'black';
+  background: 'white';
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+h1 {
+  // font-family: var(--font-title);
+  font-size: 2.2em;
+  font-weight: bold;
+  margin-bottom: 0em;
+  line-height: 2.25em;
+}
+
+.c-center {
+  @apply md:px-0 px-7 md:w-[700px] 2xl:w-[940px] mx-auto;
+}
+
+.font-main {
+  font-family: var(--font-main);
+}
+
+.search-color {
+  background-color:rgb(114 123 117 / 58%);
+}
