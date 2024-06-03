@@ -22,8 +22,8 @@ export const DataService = {
       const res = await fetch(
         `https://raw.githubusercontent.com/lplam/${project}/master/contents.md`
       );
-      // const data = await res.text();
-      const data = fs.readFileSync("TEST.md", "utf-8");
+      const data = await res.text();
+      // const data = fs.readFileSync("TEST.md", "utf-8");
       result.push({
         name: project,
         content: data,
@@ -32,6 +32,7 @@ export const DataService = {
     return result;
   },
   allPostsOfProject: async (project: Project): Promise<Day[]> => {
+    console.log("proj: ", project);
     const tokens = marked.lexer(project.content);
     const days: Day[] = [];
     let currentDay: Day | null = null;
