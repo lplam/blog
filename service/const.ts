@@ -1,1 +1,1 @@
-export const ENABLED_PROJECTS = ["blogs"];
+export const ENABLED_PROJECTS = ["blog-markdown"];

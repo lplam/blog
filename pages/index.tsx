@@ -30,7 +30,7 @@ export default function Home() {
           My portfolio
         </div>
         <div
-          onClick={() => router.push("/blogs")}
+          onClick={() => router.push("/blog-markdown")}
           className="col-span-1 w-full h-12 flex items-center justify-center bg-green-200 rounded-lg cursor-pointer animate-pulse font-semibold"
         >
           My Blog

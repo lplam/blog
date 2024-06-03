@@ -50,8 +50,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       props: { markdown, postTitle, repo, subpath },
     };
   }
-
   const days = await DataService.allPosts();
+
   if (subpath) {
     // Subpath is requested
     console.log("subpath: ", subpath);
@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       markdown = `Hey! Look like you have lost your way, consider [going back](/${repo})?`;
     }
   } else {
-    if (repo === "blogs") {
+    if (repo === "blog-markdown") {
       type PostEntry = {
         date: string;
         title: string;
@@ -125,25 +125,6 @@ const Devlog: NextPage = ({
   repo,
   subpath,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  // hljs.addPlugin(
-  //   new LineFocusPlugin({
-  //     unfocusedStyle: {
-  //       opacity: "0.35",
-  //       filter: "grayscale(1)",
-  //     },
-  //   })
-  // );
-
-  // marked.setOptions({
-  //   gfm: true,
-  //   breaks: true,
-  //   smartypants: true,
-  //   highlight: function (code, lang) {
-  //     const language = lang || "plaintext";
-  //     return hljs.highlightAuto(code).value;
-  //   },
-  // });
-
   const marked = new Marked(
     markedHighlight({
       langPrefix: "hljs language-",
@@ -155,8 +136,6 @@ const Devlog: NextPage = ({
   );
 
   let content = marked.parse(markdown);
-  // let content = marked(markdownString);
-  // let content = hljs.highlight("javascript", markdownString).value;
 
   const pageTitle = postTitle ? `${postTitle}` : "abc.test/" + repo;
   const description =
