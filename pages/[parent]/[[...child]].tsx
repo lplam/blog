@@ -20,6 +20,7 @@ import Link from "next/link";
 // import { SITE_URL } from "../../utils/consts";
 import fs from "fs";
 import { DataService } from "@/service/middleware";
+import { ENABLED_PROJECTS } from "@/service/const";
 
 // hljs.registerLanguage("javascript", javascript);
 
@@ -59,20 +60,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
     if (matchedIndex !== -1) {
       // Found the matched post
       const matchedDay = days[matchedIndex];
+      matchedDay!.tokens.shift();
       postTitle = matchedDay?.title ?? "";
       // const postDate = matchedDay.
       // const [postedDate, displayTitle] = postTitle.split(" - ");
       const [postedDate] = matchedDay.rawTokens[0].text.split("~");
 
       const displayTitle = postTitle;
-      markdown = `\n\n# ${displayTitle}\n<div class="desc text-stone-500 font-mono text-sm">Posted On ${postedDate}</div>\n\n${matchedDay!.tokens.join(
+      markdown = `\n\n# ${displayTitle}\n<div class="desc text-stone-500 font-mono text-sm">Posted On ${postedDate}<span> - By: Lam Boyer</span></div> \n\n${matchedDay!.tokens.join(
         ""
       )}`;
     } else {
       markdown = `Hey! Look like you have lost your way, consider [going back](/${repo})?`;
     }
   } else {
-    if (repo === "blog-markdown") {
+    if (repo === "blog") {
       type PostEntry = {
         date: string;
         title: string;
@@ -82,7 +84,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       };
 
       const posts: PostEntry[] = days
-        .filter((day) => day.project === repo)
+        .filter((day) => day.project === ENABLED_PROJECTS[0])
         .map((day, k) => {
           const [date, title, description] = day.rawTokens[0].text.split("~");
           const fullTitle = title;
@@ -100,7 +102,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         .slice(0, 7)
         .map(
           (post) =>
-            `\n<span class="text-stone-500 font-mono text-lg">${post.date}</span> <a class="font-mono text-lg" href="/${repo}/${post.slug}">${post.title}</a>`
+            `\n<span class="text-stone-500 font-mono text-[1rem] md:text-lg">${post.date}</span> <a class="font-mono text-[1rem] md:text-lg" href="/${repo}/${post.slug}">${post.title}</a>`
         )
         .join("\n")}`;
     }
@@ -165,14 +167,14 @@ const Devlog: NextPage = ({
         ogType={"article"}
         ogImage={socialImage}
       /> */}
-      <main className="c-center">
+      <main className="c-center ">
         {!subpath && (
           <div className="relative mt-16">
             <input
-              className="w-full h-12 rounded-xl search-color placeholder:font-medium placeholder:text-white pl-5 text-white font-medium text-xl font-mono"
+              className="w-full h-12 rounded-xl search-color placeholder:font-medium placeholder:text-white pl-5 text-white font-medium text-[1rem] md:text-xl font-mono"
               placeholder="Search something..."
             />
-            <span className="material-symbols-outlined absolute top-1/2 right-0 -translate-x-1/2 -translate-y-1/2 text-white animate-pulse text-3xl">
+            <span className="material-symbols-outlined absolute top-1/2 right-0 -translate-x-1/2 -translate-y-1/2 text-white animate-pulse text-2xl md:text-3xl">
               search
             </span>
           </div>

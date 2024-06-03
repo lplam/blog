@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </div>
       </div>
       <Component {...pageProps} />;
-      <footer className="bg-gray-100 w-full h-16 fixed bottom-0 font-main">
+      <footer className="bg-gray-100 w-full h-16 fixed bottom-0 font-main text-[0.95rem] md:text-[1.05rem]">
         <div className="flex h-full c-center justify-between items-center">
           <p className="cursor-pointer text-stone-500">Contact me:</p>
           <a
