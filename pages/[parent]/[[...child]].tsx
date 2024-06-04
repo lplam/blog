@@ -21,6 +21,7 @@ import Link from "next/link";
 import fs from "fs";
 import { DataService } from "@/service/middleware";
 import { ENABLED_PROJECTS } from "@/service/const";
+import { CommonSEO } from "@/SEO";
 
 // hljs.registerLanguage("javascript", javascript);
 
@@ -44,6 +45,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   let markdown = "";
   let postTitle = "";
+  let description = "";
 
   if (subpath === "__devmode") {
     markdown = fs.readFileSync("TEST.md", "utf-8");
@@ -64,8 +66,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       postTitle = matchedDay?.title ?? "";
       // const postDate = matchedDay.
       // const [postedDate, displayTitle] = postTitle.split(" - ");
-      const [postedDate] = matchedDay.rawTokens[0].text.split("~");
-
+      const [postedDate, p2, p3] = matchedDay.rawTokens[0].text.split("~");
+      description = p3;
       const displayTitle = postTitle;
       markdown = `\n\n# ${displayTitle}\n<div class="desc text-stone-500 font-mono text-sm">Posted On ${postedDate}<span> - By: Lam Boyer</span></div> \n\n${matchedDay!.tokens.join(
         ""
@@ -112,7 +114,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (markdown && repo) {
     return {
       revalidate: reload || isDevEnv ? 1 : 60 * 60,
-      props: { markdown, postTitle, repo, subpath },
+      props: { markdown, postTitle, repo, subpath, description },
     };
   } else {
     return {
@@ -126,6 +128,7 @@ const Devlog: NextPage = ({
   postTitle,
   repo,
   subpath,
+  description,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const marked = new Marked(
     markedHighlight({
@@ -140,33 +143,19 @@ const Devlog: NextPage = ({
   let content = marked.parse(markdown);
 
   const pageTitle = postTitle ? `${postTitle}` : "abc.test/" + repo;
-  const description =
-    markdown
-      .split("\n")
-      .filter(
-        (line: string) =>
-          !line.startsWith("# ") &&
-          !line.startsWith("\n") &&
-          line.length >= 5 &&
-          line.indexOf("arrow pull-back") === -1
-      )
-      .slice(0, 3)
-      .join(" ")
-      .substr(0, 157) + "...";
 
-  // const socialImage = postTitle
-  //   ? `https://abc.test/api/image?t=${base64_encode(postTitle)}`
-  //   : "https://abc.test/social-image.png";
+  const socialImage =
+    "https://static.semrush.com/blog/uploads/media/e6/b7/e6b7699595cb741570c9b385fa8f7971/javascript.svg";
   const isEntryContent = subpath.length;
 
   return (
     <>
-      {/* <CommonSEO
+      <CommonSEO
         title={pageTitle}
         description={description}
         ogType={"article"}
         ogImage={socialImage}
-      /> */}
+      />
       <main className="c-center ">
         {!subpath && (
           <div className="relative mt-16">
