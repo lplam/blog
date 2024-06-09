@@ -32,7 +32,6 @@ export const DataService = {
     return result;
   },
   allPostsOfProject: async (project: Project): Promise<Day[]> => {
-    console.log("proj: ", project);
     const tokens = marked.lexer(project.content);
     const days: Day[] = [];
     let currentDay: Day | null = null;

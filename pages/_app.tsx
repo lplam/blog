@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import "@/styles/custom-themes.scss";
 import "@/styles/markdown-theme.scss";
+import "@/styles/portfolio.scss";
 
 import type { AppProps } from "next/app";
 import Head from "next/head";

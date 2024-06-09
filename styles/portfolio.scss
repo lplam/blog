@@ -1,0 +1,21 @@
+
+// .c-center {
+//   @apply md:px-0 px-7 md:w-[700px] 2xl:w-[940px] mx-auto;
+// }
+
+.portfolio-fullName {
+  @apply text-2xl md:text-3xl font-bold text-blue-400;
+
+}
+
+.portfolio-contact {
+  @apply flex items-center justify-between text-sm md:text-[0.9rem];
+  a {
+    cursor: pointer;
+    color: #000;
+  }
+}
+
+.portfolio-content {
+  @apply mt-5 text-stone-500 font-mono text-[0.91rem];
+}

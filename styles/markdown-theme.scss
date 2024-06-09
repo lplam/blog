@@ -284,12 +284,15 @@
   font-weight: 600;
   padding-bottom: .3em;
   font-size: 1.5em;
+  // border-bottom: 1px solid hsla(210,18%,87%,1);
   border-bottom: 1px solid hsla(210,18%,87%,1);
 }
 
 .markdown-body h3 {
   font-weight: 600;
   font-size: 1.25em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid hsla(210,18%,87%,1);
 }
 
 .markdown-body h4 {
@@ -1134,4 +1137,12 @@
            }
        }
    }
+}
+
+.markdown-body .color-blue {
+ @apply text-blue-500;
+}
+
+.markdown-body .italic {
+  font-style: italic;
 }

@@ -56,16 +56,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const days = await DataService.allPosts();
 
   if (subpath) {
-    // Subpath is requested
     console.log("subpath: ", subpath);
     const matchedIndex = days.findIndex((day) => day?.slug.match(subpath));
     if (matchedIndex !== -1) {
-      // Found the matched post
       const matchedDay = days[matchedIndex];
       matchedDay!.tokens.shift();
       postTitle = matchedDay?.title ?? "";
-      // const postDate = matchedDay.
-      // const [postedDate, displayTitle] = postTitle.split(" - ");
       const [postedDate, p2, p3] = matchedDay.rawTokens[0].text.split("~");
       description = p3;
       const displayTitle = postTitle;
@@ -107,6 +103,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
             `\n<span class="text-stone-500 font-mono text-[1rem] md:text-lg">${post.date}</span> <a class="font-mono text-[1rem] md:text-lg" href="/${repo}/${post.slug}">${post.title}</a>`
         )
         .join("\n")}`;
+    } else if (repo === "portfolio") {
+      const content = days.find((day) => day.project === "portfolio-markdown");
+      markdown = `\n\n${content!.tokens.join("")}`;
     }
   }
 
@@ -157,7 +156,7 @@ const Devlog: NextPage = ({
         ogImage={socialImage}
       />
       <main className="c-center ">
-        {!subpath && (
+        {!subpath && repo !== "portfolio" && (
           <div className="relative mt-16">
             <input
               className="w-full h-12 rounded-xl search-color placeholder:font-medium placeholder:text-white pl-5 text-white font-medium text-[1rem] md:text-xl font-mono"

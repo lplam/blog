@@ -42,9 +42,42 @@ hello_world()
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
-      That is so funny! :joy:
-      H~2~O
-      X^2^
-      I need to highlight these ==very important words==.
-
+    That is so funny! :joy:
+    H~2~O
+    X^2^
+    I need to highlight these ==very important words==.
+<!-- 
 [![Less Than Jake — Scott Farcas Takes It On The Chin](https://img.youtube.com/vi/PYCxct2e0zI/0.jpg)](https://www.youtube.com/watch?v=PYCxct2e0zI)
+
+[Back to main page](./../README.md) -->
+
+<!-- # Links -->
+
+<!--
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/justinthoreson/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/thoresonjd)
+[![GitLab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)](https://gitlab.com/thoresonjd)
+[![SoundCloud](https://img.shields.io/badge/SoundCloud-FF3300?style=for-the-badge&logo=soundcloud&logoColor=white)](https://soundcloud.com/exulgor)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/exulgor/) -->
+
+# Menu for next week
+
+22/05/2024 ~ Menu for next week ~ How can i up date the compilers stack machine declaration
+
+#### Nguyên liệu
+
+##### _Thịt ba chỉ, thịt heo xay, thịt heo cắt sẵn, thịt bò, mực, cá lóc_
+
+<br>
+
+**Thứ 2:** Thịt heo cắt sẵn rim, canh mực thơm.
+
+**Thứ 3:** Canh rạm mòng tơi, cá kho.
+
+**Thứ 4:** Cá lóc nấu măng chua, chả trứng chiên
+
+**Thứ 5:** Thịt heo cải thìa, Canh tôm rau khoai
+
+**Thứ 6:** Canh mướp đắng thịt bò, thịt xay nấu canh rau củ hầm.
+
+<div class="color-blue italic">Mua thêm: thơm, mòng tơi, cá, măng chua, trứng, cải thìa, tôm, rau khoai, mướp đắng, rau củ</div>
