@@ -141,7 +141,7 @@ const Devlog: NextPage = ({
 
   let content = marked.parse(markdown);
 
-  const pageTitle = postTitle ? `${postTitle}` : "abc.test/" + repo;
+  const pageTitle = postTitle ? `${postTitle}` : "lplam.me/" + repo;
 
   const socialImage =
     "https://static.semrush.com/blog/uploads/media/e6/b7/e6b7699595cb741570c9b385fa8f7971/javascript.svg";
