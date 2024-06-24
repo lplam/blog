@@ -1,8 +1,3 @@
-
-// .c-center {
-//   @apply md:px-0 px-7 md:w-[700px] 2xl:w-[940px] mx-auto;
-// }
-
 .portfolio-fullName {
   @apply text-2xl md:text-3xl font-bold text-blue-400;
 
@@ -16,6 +11,28 @@
   }
 }
 
+.portfolio-contact>:first-child, .portfolio-contact>:last-child {
+  display: none;
+  @apply md:block; 
+}
+
 .portfolio-content {
   @apply mt-5 text-stone-500 font-mono text-[0.91rem];
+}
+
+.portfolio-experience {
+  ul {
+    li:first-child {
+        @apply mt-1;
+    }
+  
+  }
+}
+
+.experience-title {
+  @apply text-[1rem] font-bold mb-0 #{!important}
+}
+
+.experience-title .experience-time {
+  @apply text-[0.8rem] font-normal italic text-yellow-600;
 }
