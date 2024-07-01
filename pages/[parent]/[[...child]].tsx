@@ -46,24 +46,26 @@ export const getStaticProps: GetStaticProps = async (context) => {
   let markdown = "";
   let postTitle = "";
   let description = "";
+  let thumbnail = "";
 
   if (subpath === "__devmode") {
     markdown = fs.readFileSync("TEST.md", "utf-8");
     return {
-      props: { markdown, postTitle, repo, subpath },
+      props: { markdown, postTitle, repo, subpath, thumbnail },
     };
   }
   const days = await DataService.allPosts();
 
   if (subpath) {
-    console.log("subpath: ", subpath);
     const matchedIndex = days.findIndex((day) => day?.slug.match(subpath));
     if (matchedIndex !== -1) {
       const matchedDay = days[matchedIndex];
       matchedDay!.tokens.shift();
       postTitle = matchedDay?.title ?? "";
-      const [postedDate, p2, p3] = matchedDay.rawTokens[0].text.split("~");
+      const [postedDate, p2, p3, p4] = matchedDay.rawTokens[0].text.split("~");
       description = p3;
+      thumbnail = p4;
+
       const displayTitle = postTitle;
       markdown = `\n\n# ${displayTitle}\n<div class="desc text-stone-500 font-mono text-sm">Posted On ${postedDate}<span> - By: Lam Boyer</span></div> \n\n${matchedDay!.tokens.join(
         ""
@@ -113,7 +115,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (markdown && repo) {
     return {
       revalidate: reload || isDevEnv ? 1 : 60 * 60,
-      props: { markdown, postTitle, repo, subpath, description },
+      props: { markdown, postTitle, repo, subpath, description, thumbnail },
     };
   } else {
     return {
@@ -128,6 +130,7 @@ const Devlog: NextPage = ({
   repo,
   subpath,
   description,
+  thumbnail,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const marked = new Marked(
     markedHighlight({
@@ -144,6 +147,7 @@ const Devlog: NextPage = ({
   const pageTitle = postTitle ? `${postTitle}` : "lplam.me/" + repo;
 
   const socialImage =
+    thumbnail ||
     "https://static.semrush.com/blog/uploads/media/e6/b7/e6b7699595cb741570c9b385fa8f7971/javascript.svg";
   const isEntryContent = subpath.length;
 
@@ -168,7 +172,7 @@ const Devlog: NextPage = ({
           </div>
         )}
         <div
-          className={`markdown-body my-10 font-main text-sm md:text-[16px] ${
+          className={`markdown-body my-10 font-mono text-sm md:text-[16px] ${
             isEntryContent ? "post-content" : ""
           }`}
           dangerouslySetInnerHTML={{ __html: content }}
