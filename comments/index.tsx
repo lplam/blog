@@ -1,22 +1,25 @@
-import React, { useEffect, useRef } from "react";
+"use client";
 
-const Comments: React.FC = () => {
-  const ref = useRef<HTMLDivElement | null>(null);
+import { useEffect, useRef } from "react";
+
+const Comments = ({ issueTerm }: { issueTerm: string }) => {
+  const commentsSection = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const scriptElement = document.createElement("script");
-    scriptElement.async = true;
-    scriptElement.crossOrigin = "anonymous";
-    scriptElement.src = "https://utteranc.es/client.js";
-
-    scriptElement.setAttribute("issue-term", "url");
-    scriptElement.setAttribute("label", "comment");
-    scriptElement.setAttribute("repo", "lplam/blog");
-    scriptElement.setAttribute("theme", "preferred-color-scheme");
-
-    ref.current?.appendChild(scriptElement);
+    console.log("issueTerm", issueTerm);
+    const script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("repo", "shade-cool/article");
+    script.setAttribute("issue-term", issueTerm);
+    script.setAttribute("theme", "github-light");
+    if (commentsSection.current) {
+      commentsSection.current.appendChild(script);
+    }
   }, []);
 
-  return <div ref={ref} />;
+  return <div ref={commentsSection} />;
 };
 
 export default Comments;

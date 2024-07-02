@@ -160,7 +160,7 @@ const Devlog: NextPage = ({
         ogType={"article"}
         ogImage={socialImage}
       />
-      <main className="c-center ">
+      <main className="c-center pb-[50px]">
         {!subpath && repo !== "portfolio" && (
           <div className="relative mt-16">
             <input
@@ -178,7 +178,7 @@ const Devlog: NextPage = ({
           }`}
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
-        <Comments />
+        {subpath && <Comments issueTerm={subpath} />}
       </main>
     </>
   );
