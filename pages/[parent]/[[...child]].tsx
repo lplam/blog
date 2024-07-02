@@ -22,6 +22,7 @@ import fs from "fs";
 import { DataService } from "@/service/middleware";
 import { ENABLED_PROJECTS } from "@/service/const";
 import { CommonSEO } from "@/SEO";
+import Comments from "@/comments";
 
 // hljs.registerLanguage("javascript", javascript);
 
@@ -177,6 +178,7 @@ const Devlog: NextPage = ({
           }`}
           dangerouslySetInnerHTML={{ __html: content }}
         ></div>
+        <Comments />
       </main>
     </>
   );
