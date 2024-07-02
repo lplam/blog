@@ -12,6 +12,7 @@
   word-wrap: break-word;
   margin-top: 2.5rem;
   margin-bottom: 5rem;
+  @apply text-[0.88rem] md:text-[0.93rem];
 }
 
 .markdown-body .octicon {

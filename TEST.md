@@ -57,6 +57,8 @@ docker run -d --name mongodb -p 27017:27017 -v $PATH_OF_MONGODB_VOLUME/data:/dat
 
 You can find PATH_OF_MONGODB_VOLUME with command "docker inspect" and you will see the "Mounts" section in the output.
 
+<p class="portfolio-content">You can find PATH_OF_MONGODB_VOLUME with command "docker inspect" and you will see the "Mounts" section in the output.</p>
+
 <br>
 
 2. Exec to the mongodb container (bash)

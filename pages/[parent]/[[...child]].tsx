@@ -172,7 +172,7 @@ const Devlog: NextPage = ({
           </div>
         )}
         <div
-          className={`markdown-body my-10 font-mono text-sm md:text-[16px] ${
+          className={`markdown-body my-10 font-mono text-xs md:text-[16px] ${
             isEntryContent ? "post-content" : ""
           }`}
           dangerouslySetInnerHTML={{ __html: content }}
