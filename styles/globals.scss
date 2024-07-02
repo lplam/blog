@@ -49,3 +49,10 @@ h1 {
 .search-color {
   background-color:rgb(114 123 117 / 58%);
 }
+
+.comment {
+  width: 100%;
+  .utterances {
+    max-width: 100%;
+  }
+}

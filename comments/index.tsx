@@ -6,7 +6,6 @@ const Comments = ({ issueTerm }: { issueTerm: string }) => {
   const commentsSection = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log("issueTerm", issueTerm);
     const script = document.createElement("script");
     script.src = "https://utteranc.es/client.js";
     script.async = true;
@@ -19,7 +18,7 @@ const Comments = ({ issueTerm }: { issueTerm: string }) => {
     }
   }, []);
 
-  return <div ref={commentsSection} />;
+  return <div className="comment" ref={commentsSection} />;
 };
 
 export default Comments;
