@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 export default function Home() {
