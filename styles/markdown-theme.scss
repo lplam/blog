@@ -1143,12 +1143,16 @@
  @apply text-blue-500;
 }
 
+.markdown-body .font-size-xl {
+  @apply text-2xl;
+}
+
 .markdown-body .italic {
   font-style: italic;
 }
 
 .markdown-body .note {
   @apply font-mono text-xs md:text-[0.9rem];
-  color: rgb(203 5 71 / 67%);
+  color: rgb(43 186 144 / 91%);
   font-style: italic;
 }
