@@ -8,21 +8,18 @@ import type {
 import hljs from "highlight.js";
 import "highlight.js/styles/github.css"; // or any other theme you prefer
 import { Marked } from "marked";
-import javascript from "highlight.js/lib/languages/javascript";
 import { markedHighlight } from "marked-highlight";
-import hljsZig from "../../utils/zig";
-import { LineFocusPlugin } from "highlightjs-focus";
 // import "highlight.js/styles/base16/equilibrium-light.css";
-import Link from "next/link";
 // import { DataService } from "../../utils/data";
 // import { CommonSEO } from "../../components/SEO";
 // import { base64_encode } from "../../utils/base64";
 // import { SITE_URL } from "../../utils/consts";
-import fs from "fs";
-import { DataService } from "@/service/middleware";
-import { ENABLED_PROJECTS } from "@/service/const";
 import { CommonSEO } from "@/SEO";
 import Comments from "@/comments";
+import { ENABLED_PROJECTS } from "@/service/const";
+import { DataService } from "@/service/middleware";
+import fs from "fs";
+import { useEffect, useState } from "react";
 
 // hljs.registerLanguage("javascript", javascript);
 
@@ -48,6 +45,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
   let postTitle = "";
   let description = "";
   let thumbnail = "";
+  type PostEntry = {
+    date: string;
+    title: string;
+    fullTitle: string;
+    category: string;
+    slug: string;
+  };
+  let posts: PostEntry[] = [];
 
   if (subpath === "__devmode") {
     markdown = fs.readFileSync("TEST.md", "utf-8");
@@ -76,15 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
   } else {
     if (repo === "blog") {
-      type PostEntry = {
-        date: string;
-        title: string;
-        fullTitle: string;
-        category: string;
-        slug: string;
-      };
-
-      const posts: PostEntry[] = days
+      posts = days
         .filter((day) => day.project === ENABLED_PROJECTS[0])
         .map((day, k) => {
           const [date, title, description] = day.rawTokens[0].text.split("~");
@@ -100,7 +97,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         });
 
       markdown = `${posts
-        .slice(0, 7)
         .map(
           (post) =>
             `\n<span class="text-stone-500 font-mono text-[1rem] md:text-lg">${post.date}</span> <a class="font-mono text-[1rem] md:text-lg" href="/${repo}/${post.slug}">${post.title}</a>`
@@ -116,7 +112,15 @@ export const getStaticProps: GetStaticProps = async (context) => {
   if (markdown && repo) {
     return {
       revalidate: reload || isDevEnv ? 1 : 60 * 60,
-      props: { markdown, postTitle, repo, subpath, description, thumbnail },
+      props: {
+        markdown,
+        postTitle,
+        repo,
+        subpath,
+        description,
+        thumbnail,
+        posts: posts,
+      },
     };
   } else {
     return {
@@ -132,7 +136,10 @@ const Devlog: NextPage = ({
   subpath,
   description,
   thumbnail,
+  posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [markdownFiltered, setMarkdownFiltered] = useState(markdown);
   const marked = new Marked(
     markedHighlight({
       langPrefix: "hljs language-",
@@ -143,14 +150,35 @@ const Devlog: NextPage = ({
     })
   );
 
-  let content = marked.parse(markdown);
-
   const pageTitle = postTitle ? `${postTitle}` : "lplam.me/" + repo;
 
   const socialImage =
     thumbnail ||
     "https://static.semrush.com/blog/uploads/media/e6/b7/e6b7699595cb741570c9b385fa8f7971/javascript.svg";
   const isEntryContent = subpath.length;
+
+  const filteredPosts = posts.filter((post: any) =>
+    post.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  useEffect(() => {
+    console.log(subpath, repo);
+    if (!subpath && repo !== "portfolio") {
+      console.log("heheh");
+      setMarkdownFiltered(
+        filteredPosts.length === 0
+          ? ""
+          : filteredPosts
+              .map(
+                (post: any) =>
+                  `\n<span class="text-stone-500 font-mono text-[1rem] md:text-lg">${post.date}</span> <a class="font-mono text-[1rem] md:text-lg" href="/${repo}/${post.slug}">${post.title}</a>`
+              )
+              .join("\n")
+      );
+    }
+  }, [searchQuery]);
+
+  let content = marked.parse(markdownFiltered);
 
   return (
     <>
@@ -166,6 +194,8 @@ const Devlog: NextPage = ({
             <input
               className="w-full h-12 rounded-xl search-color placeholder:font-medium placeholder:text-white pl-5 text-white font-medium text-[1rem] md:text-xl font-mono"
               placeholder="Search something..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <span className="material-symbols-outlined absolute top-1/2 right-0 -translate-x-1/2 -translate-y-1/2 text-white animate-pulse text-2xl md:text-3xl">
               search
