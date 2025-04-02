@@ -16,9 +16,7 @@ export default function Home() {
         <h1>Hello, I&apos;m Lam</h1>
         <p>
           I&apos;m{" "}
-          <span className="text-blue-500 animate-pulse">
-            Back-end Developer
-          </span>
+          <span className="text-blue-500 animate-pulse">Software Engineer</span>
         </p>
         <p>
           {"Thank you for your visit my site "}
