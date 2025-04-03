@@ -679,3 +679,15 @@ Remember, the ScheduleModule uses the node-schedule package under the hood, so y
 ### Finally
 
 Schedule tasks in NestJS is a great and simple technique that helps improve your app's performance. It acts as a temporary data store providing high performance data access.
+
+# Add telegram bot to NestJs
+
+05/12/2024 ~ Add telegram bot to NestJs ~ Add telegram bot to NestJs ~ https://s3.buyngon.com/buyngon/web/IYWUT3VA7LJ5B5O13WO1.jpeg?AWSAccessKeyId=xEwgF5o8CqajX2gVVPJo&Expires=2606746567&Signature=LGQOiL1ZhGZMgGZzWpMvUXeK6RI%3D
+<br>
+
+[![Add telegram bot to NestJs](https://s3.buyngon.com/buyngon/web/IYWUT3VA7LJ5B5O13WO1.jpeg?AWSAccessKeyId=xEwgF5o8CqajX2gVVPJo&Expires=2606746567&Signature=LGQOiL1ZhGZMgGZzWpMvUXeK6RI%3D)](https://s3.buyngon.com/buyngon/web/IYWUT3VA7LJ5B5O13WO1.jpeg?AWSAccessKeyId=xEwgF5o8CqajX2gVVPJo&Expires=2606746567&Signature=LGQOiL1ZhGZMgGZzWpMvUXeK6RI%3D)
+
+### Introduction
+
+Telegram is a popular messaging app that allows you to send messages, files, and other content to your friends and groups.
+Now, I will be showing you how to build a basic chat bot for Telegram using Nest.js
