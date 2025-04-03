@@ -103,8 +103,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
         )
         .join("\n")}`;
     } else if (repo === "portfolio") {
-      const content = days.find((day) => day.project === "portfolio-markdown");
-      markdown = `\n\n${content!.tokens.join("")}`;
+      // const content = days.find((day) => day.project === "portfolio-markdown");
+      // markdown = `\n\n${content!.tokens.join("")}`;
+      markdown = fs.readFileSync("portfolio.md", "utf-8");
     }
   }
 
