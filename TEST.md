@@ -678,7 +678,7 @@ Remember, the ScheduleModule uses the node-schedule package under the hood, so y
 
 ### Finally
 
-Schedule tasks in NestJS is a great and simple technique that helps improve your app's performance. It acts as a temporary data store providing high performance data access.
+Schedule tasks in NestJS is a great and simple technique that helps improve your app's performance. It acts as a temporary data store providing high performance data access. 
 
 # Add telegram bot to NestJs
 
@@ -691,3 +691,103 @@ Schedule tasks in NestJS is a great and simple technique that helps improve your
 
 Telegram is a popular messaging app that allows you to send messages, files, and other content to your friends and groups.
 Now, I will be showing you how to build a basic chat bot for Telegram using Nest.js
+
+# Interview
+
+09/25/2025 ~ Interview ~ Interview ~ https://s3.buyngon.com/buyngon/web/IYWUT3VA7LJ5B5O13WO1.jpeg?AWSAccessKeyId=xEwgF5o8CqajX2gVVPJo&Expires=2606746567&Signature=LGQOiL1ZhGZMgGZzWpMvUXeK6RI%3D
+<br>
+
+### Interview yourself
+
+Hi, my name is Phuc Lam. I’m a Senior Full-Stack Developer from Ho Chi Minh City, Vietnam with 6 years of experience building scalable web applications and backend systems.
+
+Currently, I work at BuyNgon, where I lead the backend architecture and develop high-performance web applications.
+
+<strong class="highlight">My expertise</strong> covers Node.js, React, cloud infrastructure, and DevOps practices.
+
+<strong class="highlight">My strengths</strong> include designing robust backend systems, delivering high-performance solutions and mentoring junior developers.
+I hold a Bachelor’s degree in Software Technology from the University of Science, Ho Chi Minh City
+
+<strong class="highlight">My long-term goal </strong> is to become a Software Architect.
+
+
+<br>
+
+### Q & A
+
+<span class="q">1. What are your strengths and weaknesses ?</span>
+
+<span class="a">
+<strong class="highlight">My strengths</strong> are designing scalable backend architectures, mentoring junior developers, and delivering high-performance solutions with modern cloud and DevOps practices.
+</br>
+</br>
+I tend to dive deep into details to make sure things are perfect.
+</span>
+
+<span class="q"> 2. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+<span class="q"> 1. What are your strengths and weaknesses ? </span>
+
+<span class="a"></span>
+
+
+
+
