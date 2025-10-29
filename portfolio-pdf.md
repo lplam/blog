@@ -19,6 +19,7 @@ _Senior Software Engineer_
 </div>
 
 <br>
+<br>
 
 ### ABOUT ME
 
@@ -49,6 +50,13 @@ Passionate Full-Stack Developer with expertise in building scalable, high-perfor
 </div>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="portfolio-experience">
    <p class="experience-title">Full-Stack Developer</p>
@@ -65,6 +73,7 @@ Passionate Full-Stack Developer with expertise in building scalable, high-perfor
    </ul>
 </div>
 
+<br>
 <br>
 
 <div class="portfolio-experience">
@@ -92,6 +101,11 @@ Passionate Full-Stack Developer with expertise in building scalable, high-perfor
    </ul> 
 </div>
 
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
 ### SKILLS
